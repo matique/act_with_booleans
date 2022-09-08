@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe "Internal check add flag" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order
@@ -11,11 +11,11 @@ describe "Internal check add flag" do
   it "skip reserved position" do
     Order.add_to_booleans :xx
     order.xx = true
-    assert_equal 0x100, order.flags
+    assert_equal 0x100, order.booleans
 
     Order.add_to_booleans :yy
     order.yy = true
-    assert_equal 0x300, order.flags
+    assert_equal 0x300, order.booleans
   end
 
   it "rejects redefinition" do

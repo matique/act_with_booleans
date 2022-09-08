@@ -8,6 +8,7 @@
 #  DEI
 #  TDD
 #  TGCB
+#  TIOLI
 
 module ActWithBooleans
   def self.included(base)
@@ -18,14 +19,15 @@ module ActWithBooleans
     attr_reader :act_with_booleans
 
     def add_to_booleans(*flags, origin: nil, **hash)
-#    def add_to_booleans(*flags, origin: :booleans, **hash)
-p 111111111111
-p flags, origin, hash
       origin = origin&.to_sym
       init(origin)
 
       flags.each { |name| @act_with_booleans.add_flag(name, nil) }
       hash.each { |name, pos| @act_with_booleans.add_flag(name, pos) }
+    end
+
+    def remove_from_flags(*flags)
+      flags.each { |name| @act_with_booleans.remove_accessor(name) }
     end
 
     private
@@ -37,8 +39,7 @@ p flags, origin, hash
         origin = nil
         @act_with_booleans.add_mask_et_all origin
       end
-raise "origin twice" if origin
-
+      raise "ActWithBooleans: origin already defined" if origin
     end
   end
 end

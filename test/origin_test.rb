@@ -15,6 +15,6 @@ describe "Testing origin" do
 
   it "origin default" do
     Order.add_to_booleans :x
-    assert_equal :flags, admin.location(:x).origin
+    assert_equal :booleans, admin.location(:x).origin
   end
 end

@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe "Delete from Flags" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order
