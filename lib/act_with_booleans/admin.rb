@@ -3,10 +3,12 @@
 class ActWithBooleans::Admin
   attr_reader :model
   attr_accessor :origin
+  attr_accessor :size
 
   def initialize(model)
     @locations = {}
     @model = model
+    @size = 0
     @boolean_hash = {}
     [true, "true", 1, "1"].each { |x| @boolean_hash[x] = true }
     [false, "false", 0, "0"].each { |x| @boolean_hash[x] = false }
@@ -14,6 +16,12 @@ class ActWithBooleans::Admin
 
   def reset_model(model)
     initialize model
+  end
+
+  def xsize
+    return nil if locations.empty?
+
+raise "hugo"
   end
 
   def to_boolean(value)
