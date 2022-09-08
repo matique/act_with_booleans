@@ -32,7 +32,7 @@ class ActWithBooleans::Admin
     parent = model.superclass.act_with_booleans
     return parent.location(name) if parent
 
-    raise "unknown boolean '#{model}##{name}'"
+    raise "unknown bool '#{model}##{name}'"
   end
 
   private
@@ -41,19 +41,25 @@ class ActWithBooleans::Admin
     location(name).position
   end
 
-  def add_to_locations(bool, location)
-    who = "<#{bool}: #{location.origin}@#{location.position}>"
-    raise "name already used #{who}" if @locations.key?(bool)
+  def add_to_locations(flag, location)
+    who = "<#{flag}: #{location.origin}@#{location.position}>"
+    raise "name already used #{who}" if @locations.key?(flag)
     bool = @locations.has_value?(location)
     raise "position already used #{who}" if bool
-    @locations[bool] = location
+    @locations[flag] = location
   end
 
-  def check_pos(pos)
-    pos = @size unless pos
+  def check_pos(model, pos)
+    return pos if pos
 
-    raise "Position already in use" if pos < @size
-    @size = pos + 1
-    pos
+    max_position = -1
+    @locations.each { |name, location|
+      model2, orig2, pos2 = location.values
+      next unless model == model2 && origin == orig2
+
+      max_position = pos2 if pos2 > max_position
+    }
+
+    max_position + 1
   end
 end
