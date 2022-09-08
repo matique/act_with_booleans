@@ -1,18 +1,13 @@
 # frozen_string_literal: true
 
 class ActWithBooleans::Admin
-  def add_flag(name, pos)
+  def add_bool(name, pos)
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
-    pos = check_pos(model, pos)
-    msg = "Invalid position <#{pos}>"
-    raise(ArgumentError, msg) unless pos.is_a?(Integer)
-    raise(ArgumentError, msg) unless pos >= 0
+    pos = check_pos(pos)
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
-
-    # validate_position(range, pos)
 
     mask = mask(accessor)
     add_accessors(accessor, origin, mask)
@@ -48,14 +43,6 @@ class ActWithBooleans::Admin
     }
     reset_model model
   end
-
-  #  def validate_position(range, position)
-  #    return if range.nil?
-  #    return if range.cover?(position)
-  #
-  #    msg = "Position #{position} out of range #{range}"
-  #    raise RangeError, msg
-  #  end
 
   private
 

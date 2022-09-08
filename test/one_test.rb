@@ -9,7 +9,7 @@ describe "One Flag" do
     Order.add_to_booleans bool
   end
 
-  it "set flag (:blocked)" do
+  it "set bool (:blocked)" do
     order.blocked = true
     assert_equal true, order.blocked
     assert_equal true, order.blocked?
@@ -20,7 +20,7 @@ describe "One Flag" do
   end
 
   it "rejects redefining" do
-    assert_raises { Order.add_to_booleans flag }
+    assert_raises { Order.add_to_booleans bool }
   end
 
   it "rejects redefining #2" do

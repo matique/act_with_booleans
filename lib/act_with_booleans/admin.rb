@@ -18,12 +18,6 @@ class ActWithBooleans::Admin
     initialize model
   end
 
-  def xsize
-    return nil if locations.empty?
-
-raise "hugo"
-  end
-
   def to_boolean(value)
     res = @boolean_hash[value]
     return res unless res.nil?

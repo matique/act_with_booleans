@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "Internal check add flag" do
+describe "Internal check add boolean" do
   let(:order) { Order.new }
 
   def setup

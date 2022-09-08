@@ -6,7 +6,7 @@
 #  YAGNI
 #  POLS
 #  DEI
-#  TDD
+#  TDD is great
 #  TGCB
 #  TIOLI
 #  PORO
@@ -23,8 +23,8 @@ module ActWithBooleans
       origin = origin&.to_sym
       init(origin)
 
-      booleans.each { |name| @act_with_booleans.add_flag(name, nil) }
-      hash.each { |name, pos| @act_with_booleans.add_flag(name, pos) }
+      booleans.each { |name| @act_with_booleans.add_bool(name, nil) }
+      hash.each { |name, pos| @act_with_booleans.add_bool(name, pos) }
     end
 
     private

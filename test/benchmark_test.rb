@@ -6,7 +6,7 @@ require "benchmark"
 require "benchmark/ips"
 # ENV["MORE"] = "true"
 
-describe "Internal timings flag" do
+describe "Internal timings boolean" do
   let(:order) { Order.create }
 
   def setup
@@ -35,7 +35,7 @@ describe "Internal timings mask" do
 
   def setup
     reset_order
-    Order.add_to_booleans a: 1, b: 7, c: 3
+    Order.add_to_booleans a: 1, c: 3, b: 7
     # Order.add_to_booleans a: 1, b: 60, c: 3
     # Order.add_to_booleans a: 1, b: 1000, c: 3
   end

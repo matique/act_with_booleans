@@ -5,7 +5,7 @@ describe "Legacy Flag" do
 
   def setup
     reset_order
-    Order.add_to_booleans a: 1, b: 7, c: 3
+    Order.add_to_booleans a: 1, c: 3, b: 7
   end
 
   it "set true" do

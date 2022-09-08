@@ -4,6 +4,7 @@ class ActWithBooleans::Admin
   def to_s
     res = []
     res << title("Variables")
+    res << variables(:size)
     res << variables(:boolean_hash)
 
     res << blk("Booleans sorted alfabetically") { |key, loc|
