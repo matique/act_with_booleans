@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ActWithBooleans::Admin
-  attr_reader
+  attr_reader :model
+  attr_accessor :origin
 
   def initialize(model)
     @locations = {}

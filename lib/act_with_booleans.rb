@@ -17,10 +17,11 @@ module ActWithBooleans
   module ClassMethods
     attr_reader :act_with_booleans
 
-    def add_to_booleans(*flags, origin: :booleans, **hash)
+    def add_to_booleans(*flags, origin: nil, **hash)
+#    def add_to_booleans(*flags, origin: :booleans, **hash)
 p 111111111111
 p flags, origin, hash
-      origin = origin.to_sym
+      origin = origin&.to_sym
       init(origin)
 
       flags.each { |name| @act_with_booleans.add_flag(name, nil) }
@@ -32,8 +33,12 @@ p flags, origin, hash
     def init(origin)
       unless @act_with_booleans
         @act_with_booleans = ActWithBooleans::Admin.new self
+        @act_with_booleans.origin = origin || :booleans
+        origin = nil
         @act_with_booleans.add_mask_et_all origin
       end
+raise "origin twice" if origin
+
     end
   end
 end

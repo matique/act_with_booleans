@@ -16,28 +16,19 @@ class ActWithBooleans::Admin
       end
 
       def #{accessor}?
-        raise "Uninitialized '#{model}.#{origin}'" if #{origin}.nil?
-        if #{origin}.is_a?(String)
-          flags = self.#{origin}.to_i
-          !( flags & #{mask} ).zero?
-        else
-          !( self.#{origin} & #{mask} ).zero?
-        end
+        !( self.#{origin}.to_i & #{mask} ).zero?
       end
 
       def #{accessor}=(value)
-        raise "Uninitialized '#{model}.#{origin}'" if #{origin}.nil?
-        is_a_string = #{origin}.is_a?(String)
-        flags = self.#{origin}.to_i
-        flags ||= 0
+        booleans = self.#{origin}.to_i
 
         result = self.act_with_booleans.to_boolean(value)
         if result
-          flags |= #{mask}
+          booleans |= #{mask}
         else
-          flags &= ~#{mask}
+          booleans &= ~#{mask}
         end
-        self.#{origin} = is_a_string ? flags.to_s : flags
+        self.#{origin} = booleans
 
         result
       end

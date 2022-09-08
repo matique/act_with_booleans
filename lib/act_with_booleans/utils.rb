@@ -3,9 +3,7 @@
 class ActWithBooleans::Admin
   def add_flag(name, pos)
 p 22222222222222
-p name, pos
     accessor = name.to_sym
-p accessor
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 p 23
 
@@ -18,7 +16,7 @@ p 25
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
 
-    validate_position(range, pos)
+#    validate_position(range, pos)
 
     mask = mask(accessor)
     add_accessors(accessor, origin, mask)
@@ -55,13 +53,13 @@ p 25
     reset_model model
   end
 
-  def validate_position(range, position)
-    return if range.nil?
-    return if range.cover?(position)
-
-    msg = "Position #{position} out of range #{range}"
-    raise RangeError, msg
-  end
+#  def validate_position(range, position)
+#    return if range.nil?
+#    return if range.cover?(position)
+#
+#    msg = "Position #{position} out of range #{range}"
+#    raise RangeError, msg
+#  end
 
   private
 
