@@ -6,18 +6,16 @@ class ActWithBooleans::Admin
     res << title("Variables")
     res << variables(:boolean_hash)
 
-    res << blk("Flags sorted alfabetically") { |key, loc|
+    res << blk("Booleans sorted alfabetically") { |key, loc|
       "#{key} #{loc}"
     }
-    res << blk("Flags and mask; sorted alfabetically") { |key, loc|
+    res << blk("Booleans and mask; sorted alfabetically") { |key, loc|
       "#{key}  #{sprintf("0x%08X", mask(key))}"
     }
-    res << blk("FLAG assignment; sorted alfabetically") { |key, loc|
-      "FLAG_#{key.upcase} = #{sprintf("0x%08X", mask(key))}"
+    res << blk("BOOLEAN assignment; sorted alfabetically") { |key, loc|
+      "BOOLEAN_#{key.upcase} = #{sprintf("0x%08X", mask(key))}"
     }
 
-    res << title("@ranges")
-    res << @ranges
     res << title("@locations")
     res << @locations
     res.flatten.join("\n")

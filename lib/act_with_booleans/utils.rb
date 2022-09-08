@@ -25,17 +25,17 @@ class ActWithBooleans::Admin
       end
 
       def booleans_any?(*names)
-        mask = self.class.act_with_booleans.mask(*names)
+        mask = booleans_mask(*names)
         !( self.#{origin} & mask ).zero?
       end
 
       def booleans_all?(*names)
-        mask = self.class.act_with_booleans.mask(*names)
+        mask = booleans_mask(*names)
         ( self.#{origin} & mask ) == mask
       end
 
       def booleans_none?(*names)
-        mask = self.class.act_with_booleans.mask(*names)
+        mask = booleans_mask(*names)
         ( self.#{origin} & mask ).zero?
       end
     ), __FILE__, __LINE__ - 19
@@ -44,7 +44,7 @@ class ActWithBooleans::Admin
   def reset
     names = @locations.keys.sort
     names.each { |name|
-      remove_accessor name
+      remove_accessors name
     }
     reset_model model
   end

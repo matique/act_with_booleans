@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = "act_with_booleans"
   s.version = ActWithBooleans::VERSION
   s.summary = %(Ruby gem act_with_booleans)
-  s.description = %(Handles booleans placed in an integer)
+  s.description = %(Handles booleans packed in an integer)
   s.authors = ["Dittmar Krall"]
   s.email = ["dittmar.krall@matiq.com"]
   s.homepage = "http://matiq.com"

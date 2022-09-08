@@ -6,5 +6,4 @@ group :test do
   gem "standard", require: false
   gem "simplecov", require: false
   gem "benchmark-ips"
-  gem "ricecream"
 end

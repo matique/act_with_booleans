@@ -35,7 +35,7 @@ class ActWithBooleans::Admin
     ), __FILE__, __LINE__ - 22
   end
 
-  def remove_accessor(accessor)
+  def remove_accessors(accessor)
     my_undef model, accessor, "#{accessor}?", "#{accessor}="
   end
 end

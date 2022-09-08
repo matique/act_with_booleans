@@ -27,10 +27,6 @@ module ActWithBooleans
       hash.each { |name, pos| @act_with_booleans.add_flag(name, pos) }
     end
 
-    def remove_from_booleans(*booleans)
-      booleans.each { |name| @act_with_booleans.remove_accessor(name) }
-    end
-
     private
 
     def init(origin)
@@ -52,5 +48,4 @@ require "act_with_booleans/utils"
 require "act_with_booleans/define"
 require "act_with_booleans/admin"
 require "act_with_booleans/booleans"
-require "act_with_booleans/clear"
 require "act_with_booleans/print"
