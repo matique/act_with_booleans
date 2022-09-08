@@ -6,9 +6,6 @@ class ActWithBooleans::Admin
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
     pos = check_pos(model, pos)
-    msg = "Invalid position <#{pos}>"
-    raise(ArgumentError, msg) unless pos.is_a?(Integer)
-    raise(ArgumentError, msg) unless pos >= 0
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
 

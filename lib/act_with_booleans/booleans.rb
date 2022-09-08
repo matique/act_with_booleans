@@ -32,7 +32,7 @@ class ActWithBooleans::Admin
     parent = model.superclass.act_with_booleans
     return parent.location(name) if parent
 
-    raise "unknown bool '#{model}##{name}'"
+    raise "unknown boolean '#{model}##{name}'"
   end
 
   private
