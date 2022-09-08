@@ -9,6 +9,7 @@
 #  TDD
 #  TGCB
 #  TIOLI
+#  PORO
 
 module ActWithBooleans
   def self.included(base)
@@ -82,7 +83,7 @@ end
 #      raise RangeError, "Invalid range value #{range_value}"
 #    end
 #  end
-#end
+# end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
 require "act_with_booleans/version"

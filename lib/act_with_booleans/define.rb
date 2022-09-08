@@ -32,7 +32,7 @@ class ActWithBooleans::Admin
 
         result
       end
-    ), __FILE__, __LINE__ - 31
+    ), __FILE__, __LINE__ - 22
   end
 
   def remove_accessor(accessor)
