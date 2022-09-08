@@ -10,9 +10,9 @@ describe "Testing reset" do
 
   it "reset hard" do
     empty = {}
-    refute_equal empty, Order.add_to_booleans.locations
+    refute_equal empty, Order.act_with_booleans.locations
 
     Order.act_with_booleans&.reset
-    assert_equal empty, Order.add_to_booleans.locations
+    assert_equal empty, Order.act_with_booleans.locations
   end
 end

@@ -36,9 +36,10 @@ module ActWithBooleans
     def init(origin)
       unless @act_with_booleans
         @act_with_booleans = ActWithBooleans::Admin.new self
-        @act_with_booleans.origin = origin || :booleans
-        origin = nil
+        origin ||= :booleans
+        @act_with_booleans.origin = origin
         @act_with_booleans.add_mask_et_all origin
+        origin = nil
       end
       raise "ActWithBooleans: origin already defined" if origin
     end
