@@ -19,22 +19,27 @@ module ActWithBooleans
 
     def add_to_booleans(*flags, origin: :booleans, **hash)
 p 111111111111
+p flags, origin, hash
+      origin = origin.to_sym
+      init(origin)
+
+      flags.each { |name| @act_with_booleans.add_flag(name, nil) }
+      hash.each { |name, pos| @act_with_booleans.add_flag(name, pos) }
+    end
+
+    private
+
+    def init(origin)
+      unless @act_with_booleans
+        @act_with_booleans = ActWithBooleans::Admin.new self
+        @act_with_booleans.add_mask_et_all origin
+      end
     end
   end
 end
 
 #  module Base
-#    attr_reader :act_with_booleans
-#
-#    def add_to_booleans(*flags, origin: :flags, range: nil, **hash)
-#      origin = origin.to_sym
-#      init(origin, range)
-#
-#      flags.each { |name| @act_with_booleans.add_flag(name, nil, origin) }
-#      hash.each { |name, pos| @act_with_booleans.add_flag(name, pos, origin) }
-#
-#      @act_with_booleans
-#    end
+# ...
 #
 #    def remove_from_flags(*flags)
 #      flags.each { |name| @act_with_booleans.remove_accessor(name) }
@@ -43,19 +48,7 @@ end
 #    def clear_flags_at_save(*flags)
 #      @act_with_booleans.clear_at_save(*flags)
 #    end
-#
-#    private
-#
-#    def init(origin, range)
-#      unless @act_with_booleans
-#        @act_with_booleans ||= ActWithBooleans::Admin.new self
-#        @act_with_booleans.add_mask_et_all origin
-#      end
-#
-#      unless range.nil?
-#        validate_range_value range.begin
-#        validate_range_value range.end
-#      end
+# ...
 #
 #      rng = @act_with_booleans.ranges[origin]
 #      unless range.nil? || (range == rng)
@@ -87,9 +80,9 @@ end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
 require "act_with_booleans/version"
-#require "act_with_booleans/utils"
-#require "act_with_booleans/define"
-#require "act_with_booleans/admin"
-#require "act_with_booleans/flags"
-#require "act_with_booleans/clear"
-#require "act_with_booleans/print"
+require "act_with_booleans/utils"
+require "act_with_booleans/define"
+require "act_with_booleans/admin"
+require "act_with_booleans/flags"
+require "act_with_booleans/clear"
+require "act_with_booleans/print"

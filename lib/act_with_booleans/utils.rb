@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
 class ActWithBooleans::Admin
-  def add_flag(name, pos, origin)
-    range = ranges[origin]
+  def add_flag(name, pos)
+p 22222222222222
+p name, pos
     accessor = name.to_sym
+p accessor
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
+p 23
 
-    pos = check_pos(model, origin, pos)
+    pos = check_pos(model, pos)
+p 24
     msg = "Invalid position <#{pos}>"
+p 25
     raise(ArgumentError, msg) unless pos.is_a?(Integer)
     raise(ArgumentError, msg) unless pos >= 0
     loc = Location.new(model, origin, pos)

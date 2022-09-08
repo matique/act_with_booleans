@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class ActWithBooleans::Admin
-  attr_reader :model, :ranges
+  attr_reader
 
   def initialize(model)
     @locations = {}
-    @clears = {}
-    @ranges = {}
     @model = model
     @boolean_hash = {}
     [true, "true", 1, "1"].each { |x| @boolean_hash[x] = true }

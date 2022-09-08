@@ -49,7 +49,7 @@ class ActWithBooleans::Admin
     @locations[flag] = location
   end
 
-  def check_pos(model, origin, pos)
+  def check_pos(model, pos)
     return pos if pos
 
     max_position = -1
