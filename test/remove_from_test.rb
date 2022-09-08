@@ -10,7 +10,7 @@ describe "Delete from Flags" do
   end
 
   it "remove accessors" do
-    Order.remove_from_flags :b
+    Order.remove_from_booleans :b
     assert_raises { order.b }
     refute Order.respond_to?(:b)
   end

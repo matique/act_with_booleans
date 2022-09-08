@@ -5,18 +5,18 @@ class ActWithBooleans::Admin
 
   attr_reader :locations
 
-  def mask(*flags)
-    return 0 if flags.empty?
+  def mask(*booleans)
+    return 0 if booleans.empty?
 
-    res = mask2d(*flags)
-    raise "Mixing origins fails: #{flags}" unless res.length == 1
+    res = mask2d(*booleans)
+    raise "Mixing origins fails: #{booleans}" unless res.length == 1
 
     res.values.first
   end
 
-  def mask2d(*flags)
+  def mask2d(*booleans)
     res = {}
-    flags.each { |flag|
+    booleans.each { |flag|
       model, orig, pos = location(flag).values
       idx = "#{model}##{orig}"
       mask = res[idx] || 0

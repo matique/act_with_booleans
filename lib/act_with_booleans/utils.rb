@@ -20,21 +20,21 @@ class ActWithBooleans::Admin
 
   def add_mask_et_all(origin)
     model.class_eval %(
-      def flags_mask(*names)
+      def booleans_mask(*names)
         self.class.act_with_booleans.mask(*names)
       end
 
-      def flags_any?(*names)
+      def booleans_any?(*names)
         mask = self.class.act_with_booleans.mask(*names)
         !( self.#{origin} & mask ).zero?
       end
 
-      def flags_all?(*names)
+      def booleans_all?(*names)
         mask = self.class.act_with_booleans.mask(*names)
         ( self.#{origin} & mask ) == mask
       end
 
-      def flags_none?(*names)
+      def booleans_none?(*names)
         mask = self.class.act_with_booleans.mask(*names)
         ( self.#{origin} & mask ).zero?
       end

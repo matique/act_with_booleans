@@ -45,9 +45,9 @@ describe "Internal timings mask" do
 
     Benchmark.ips do |x|
       x.report("mask(:a, :b):  ") { admin.mask(:a, :b) }
-      x.report("any?(:a, :b):  ") { order.flags_any?(:a, :b) }
-      x.report("all?(:a, :b):  ") { order.flags_all?(:a, :b) }
-      x.report("none?(:a, :b): ") { order.flags_none?(:a, :b) }
+      x.report("any?(:a, :b):  ") { order.booleans_any?(:a, :b) }
+      x.report("all?(:a, :b):  ") { order.booleans_all?(:a, :b) }
+      x.report("none?(:a, :b): ") { order.booleans_none?(:a, :b) }
 
       x.compare!
     end

@@ -3,8 +3,8 @@
 class ActWithBooleans::Admin
   attr_reader :clears
 
-  def clear_at_save(*flags)
-    flags.each { |name| add_to_clear_mask(name) }
+  def clear_at_save(*booleans)
+    booleans.each { |name| add_to_clear_mask(name) }
     clears.each { |orig, mask|
       before_save(orig, mask)
     }

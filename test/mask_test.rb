@@ -16,7 +16,7 @@ describe "mask" do
     assert_equal 0x80, admin.mask(:b)
   end
 
-  it "mask of several flags" do
+  it "mask of several booleans" do
     assert_equal 0x8a, admin.mask(:a, :b, :c)
   end
 
