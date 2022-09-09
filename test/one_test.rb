@@ -9,6 +9,12 @@ describe "One Flag" do
     Order.add_to_booleans bool
   end
 
+  it "checks bool default" do
+    refute_equal true, order.blocked
+    assert_equal false, order.blocked
+    assert_equal false, order.blocked?
+  end
+
   it "set bool (:blocked)" do
     order.blocked = true
     assert_equal true, order.blocked

@@ -9,5 +9,6 @@ describe "No Flags" do
   it "respond to ActWithBooleans API" do
     assert Order.respond_to?(:add_to_booleans)
     assert Order.respond_to?(:act_with_booleans)
+    assert Order.respond_to?(:booleans_mask)
   end
 end
