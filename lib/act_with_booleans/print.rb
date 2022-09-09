@@ -4,6 +4,7 @@ class ActWithBooleans::Admin
   def to_s
     res = []
     res << title("Variables")
+    res << variables(:origin)
     res << variables(:size)
     res << variables(:boolean_hash)
 

@@ -10,6 +10,8 @@ describe "size" do
 
   it "checks empty booleans" do
     assert_equal 0, admin.size
+    order = Order.new
+    assert_equal 0, order.act_with_booleans.size
   end
 
   it "checks one boolean" do
