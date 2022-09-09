@@ -6,13 +6,7 @@ class ActWithBooleans::Admin
   attr_reader :locations
 
   def location(name)
-    location = @locations[name]
-    return location if location
-
-    parent = model.superclass.act_with_booleans
-    return parent.location(name) if parent
-
-    raise "unknown boolean '#{model}##{name}'"
+    @locations[name]
   end
 
   def position(name)

@@ -22,6 +22,6 @@ describe "Coverage" do
   end
 
   it "coverage location raise" do
-    assert_raises { order.act_with_booleans.location(:unknown) }
+    assert_nil order.act_with_booleans.location(:unknown)
   end
 end

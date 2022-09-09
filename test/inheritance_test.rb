@@ -46,10 +46,8 @@ describe "inheritance" do
   it "tests booleans_mask" do
     assert_equal 0x02, Order.booleans_mask(:x)
     assert_raises { Order.booleans_mask(:y) }
-    assert_equal 0x02, B.booleans_mask(:x)
-#    assert_raises { B.booleans_mask(:x) }
+    assert_raises { B.booleans_mask(:x) }
     assert_equal 0x04, B.booleans_mask(:y)
-
-    assert_equal 0x02, B.booleans_mask(:x, :y)
+    assert_raises { B.booleans_mask(:x, :y) }
   end
 end
