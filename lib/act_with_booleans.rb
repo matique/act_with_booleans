@@ -30,7 +30,7 @@ module ActWithBooleans
     def booleans_mask(*booleans)
       res = 0
       booleans.each { |bool|
-        model, orig, pos = act_with_booleans.location(bool).values
+        _model, _orig, pos = act_with_booleans.location(bool).values
         res |= 1 << pos
       }
       res
@@ -41,7 +41,6 @@ module ActWithBooleans
     def init(origin)
       unless act_with_booleans
         @act_with_booleans = ActWithBooleans::Admin.new self
-#        @act_with_booleans = ActWithBooleans::Admin.new self
         origin ||= :booleans
         act_with_booleans.origin = origin
         act_with_booleans.add_mask_et_all origin

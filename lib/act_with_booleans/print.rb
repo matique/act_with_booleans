@@ -12,10 +12,10 @@ class ActWithBooleans::Admin
       "#{key} #{loc}"
     }
     res << blk("Booleans and mask; sorted alfabetically") { |key, loc|
-      "#{key}  #{sprintf("0x%08X", mask(key))}"
+      "#{key}  #{hex(model.booleans_mask(key))}"
     }
     res << blk("BOOLEAN assignment; sorted alfabetically") { |key, loc|
-      "BOOLEAN_#{key.upcase} = #{sprintf("0x%08X", mask(key))}"
+      "BOOLEAN_#{key.upcase} = #{hex(model.booleans_mask(key))}"
     }
 
     res << title("@locations")
@@ -42,5 +42,9 @@ class ActWithBooleans::Admin
       value = instance_variable_get(:"@#{name}")
       "#{name} #{value}"
     }
+  end
+
+  def hex(value)
+    sprintf("0x%08X", value)
   end
 end

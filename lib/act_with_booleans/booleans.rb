@@ -5,26 +5,6 @@ class ActWithBooleans::Admin
 
   attr_reader :locations
 
-  def mask(*booleans)
-    return 0 if booleans.empty?
-
-    res = mask2d(*booleans)
-    raise "Mixing origins fails: #{booleans}" unless res.length == 1
-
-    res.values.first
-  end
-
-  def mask2d(*booleans)
-    res = {}
-    booleans.each { |bool|
-      model, orig, pos = location(bool).values
-      idx = "#{model}##{orig}"
-      mask = res[idx] || 0
-      res[idx] = mask | (1 << pos)
-    }
-    res
-  end
-
   def location(name)
     location = @locations[name]
     return location if location
@@ -35,11 +15,11 @@ class ActWithBooleans::Admin
     raise "unknown boolean '#{model}##{name}'"
   end
 
-  private
-
   def position(name)
     location(name).position
   end
+
+  private
 
   def add_to_locations(flag, location)
     who = "<#{flag}: #{location.origin}@#{location.position}>"

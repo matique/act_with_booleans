@@ -9,28 +9,28 @@ class ActWithBooleans::Admin
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
 
-    mask = mask(accessor)
+    mask = model.booleans_mask(accessor)
     add_accessors(accessor, origin, mask)
   end
 
   def add_mask_et_all(origin)
     model.class_eval %(
       def booleans_mask(*names)
-        self.class.act_with_booleans.mask(*names)
+        #{model}.booleans_mask(*names)
       end
 
       def booleans_any?(*names)
-        mask = booleans_mask(*names)
+        mask = #{model}.booleans_mask(*names)
         !( self.#{origin} & mask ).zero?
       end
 
       def booleans_all?(*names)
-        mask = booleans_mask(*names)
+        mask = #{model}.booleans_mask(*names)
         ( self.#{origin} & mask ) == mask
       end
 
       def booleans_none?(*names)
-        mask = booleans_mask(*names)
+        mask = #{model}.booleans_mask(*names)
         ( self.#{origin} & mask ).zero?
       end
     ), __FILE__, __LINE__ - 19
