@@ -49,7 +49,7 @@ class ActWithBooleans::Admin
     @locations[flag] = location
   end
 
-  def check_pos(model, pos)
+  def check_pos(pos)
     pos ||= @size
 
     raise "Position already in use" if pos < @size

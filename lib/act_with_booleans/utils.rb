@@ -5,7 +5,7 @@ class ActWithBooleans::Admin
     accessor = name.to_sym
     validate_accessor accessor, "#{accessor}?", "#{accessor}="
 
-    pos = check_pos(model, pos)
+    pos = check_pos(pos)
     loc = Location.new(model, origin, pos)
     add_to_locations accessor, loc
 

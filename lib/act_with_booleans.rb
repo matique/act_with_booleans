@@ -23,18 +23,28 @@ module ActWithBooleans
       origin = origin&.to_sym
       init(origin)
 
-      booleans.each { |name| @act_with_booleans.add_flag(name, nil) }
-      hash.each { |name, pos| @act_with_booleans.add_flag(name, pos) }
+      booleans.each { |name| act_with_booleans.add_flag(name, nil) }
+      hash.each { |name, pos| act_with_booleans.add_flag(name, pos) }
+    end
+
+    def booleans_mask(*booleans)
+      res = 0
+      booleans.each { |bool|
+        model, orig, pos = act_with_booleans.location(bool).values
+        res |= 1 << pos
+      }
+      res
     end
 
     private
 
     def init(origin)
-      unless @act_with_booleans
+      unless act_with_booleans
         @act_with_booleans = ActWithBooleans::Admin.new self
+#        @act_with_booleans = ActWithBooleans::Admin.new self
         origin ||= :booleans
-        @act_with_booleans.origin = origin
-        @act_with_booleans.add_mask_et_all origin
+        act_with_booleans.origin = origin
+        act_with_booleans.add_mask_et_all origin
         origin = nil
       end
       raise "ActWithBooleans: origin already defined" if origin
