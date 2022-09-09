@@ -15,88 +15,71 @@ As usual:
 ...
 gem "act_with_booleans"
 ...
-
-
-## Version 3.1.1
-
-Option "range" can be specified just once for all
-"add_to_flags" for a specific "origin".
-
-For example:
-~~~ruby
-Order.add_to_flags range: ..0
-...
-Order.add_to_flags :a
-~~~
-
-Same as:
-~~~ruby
-Order.add_to_flags :a
-...
-Order.add_to_flags range: ..0
-~~~
-
-or:
-~~~ruby
-Order.add_to_flags :a, range: ..0
-~~~
-
-Examples for "range":
-~~~ruby
-Order.add_to_flags range: 0..17   # legal flag position from 0 to 17
-Order.add_to_flags range: ..17    # legal flag position from 0 to 17
-Order.add_to_flags range: nil..17 # legal flag position from 0 to 17
-Order.add_to_flags range: 3..     # legal flag position from 3 to big_number
-Order.add_to_flags range: 3..nil  # legal flag position from 3 to big_number
-~~~
-
-Invalid ranges:
-~~~ruby
-Order.add_to_flags range: -1..17   # range starting with a negative position
-Order.add_to_flags range: :a..:z   # invalid range
-Order.add_to_flags range: "a".."z" # invalid range
-~~~
-
-
-## Version 3.1.0
-
-Added option "range" limiting the position of flags.
-
-An example:
-```ruby
-ii = 3
-Order.add_to_flags range: (2..4), a: (ii += 1) # accepted
-Order.add_to_flags range: (2..4), b: (ii += 1) # raises exception
 ```
 
-Option "range" enables an early static check.
+## Samples
 
-Option "range" does not replace the dynamic "validate" in models,
-which is strongly recommended for complex applications.
-Due to Ruby "act_with_flags" can handle a huge quantity
-of booleans in an integer (or a string),
-but your database may fail above a certain amount of bits.
-
-The option ":max_bits" is deprecated.
-
-
-## Version 3.0.x
-
-As required by key.matiq an enhanced "origin:" has been implemented.
-Act_with_flags now supports many "origin:"s
-(not just renaming the default "flags").
-
-An example:
 ```ruby
-Order.add_to_flags :a # origin is :flags
-Order.add_to_flags :b, b2: 63 # origin is :flags
-Order.add_to_flags :c, origin: :origin1
-Order.add_to_flags d: 3, origin: :origin2
-Order.add_to_flags :d2, origin: :origin2
+#require "act_with_booleans"
+
+class Foo
+  include ActWithBooleans
+  attr_accessor :booleans
+
+  add_to_booleans :x, :y
+end
+
+foo = Foo.new
+foo.x    # --> false
+foo.x = true
+foo.x    # --> true
+foo.x?   # --> true
+Foo.booleans_mask(:x, :y) # 3 (0x03)
 ```
 
-The default "origin:" continues to be "flags".
+```ruby
+class Foo
+  add_to_booleans z: 10
+end
 
+Foo.booleans_mask(:z) # 1024 (0x400) or 2 ** 10
+Foo.act_with_booleans.size # 11
+```
+
+```ruby
+foo.x = true
+foo.y = false
+foo.booleans_any?(:x, :y)  # true
+foo.booleans_all?(:x, :y)  # false
+foo.booleans_none?(:x, :y) # false
+```
+
+```ruby
+#require "act_with_booleans"
+
+class Foo
+  include ActWithBooleans
+  attr_accessor :flags
+
+  add_to_booleans :x, :y, origin: :flags
+end
+
+foo = Foo.new
+foo.x    # --> false
+```
+
+
+## Rails
+
+ActWithBooleans is PORO,
+i.e. it can and, usually, will be used in Rails.
+
+The "origin" (default :booleans) is an integer containing the booleans.
+
+Ruby supports pretty large integers,
+but your database has limitations.
+Therefore, it is strongly recommended to validate the "origin"
+in the model.
 
 ## Testing
 
@@ -105,10 +88,6 @@ As "Best Practice" a test coverage of 100% has been achieved
 
 GitHub workflow enable tests for several configurations.
 Please, feel free to inspect the corresponding file.
-
-The "gem appraisal" is used for an additional set of configurations.
-Feel free to inspect the corresponding file.
-
 
 ## Links
 
@@ -124,7 +103,7 @@ Further reading:
 
 ## License MIT
 
-Copyright (c) 2019-2022 [Dittmar Krall](matiq UG (haftungsbeschränkt))
+Copyright (c) 2022 [Dittmar Krall](matiq UG (haftungsbeschränkt))
 and is released under the MIT license:
 
 * https://opensource.org/licenses/MIT
