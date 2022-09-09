@@ -5,7 +5,7 @@ describe "mask" do
 
   def setup
     reset_order
-    Order.add_to_booleans a: 1, c:3, b: 7
+    Order.add_to_booleans a: 1, c: 3, b: 7
   end
 
   it "mask empty" do

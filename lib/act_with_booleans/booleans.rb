@@ -50,16 +50,10 @@ class ActWithBooleans::Admin
   end
 
   def check_pos(model, pos)
-    return pos if pos
+    pos ||= @size
 
-    max_position = -1
-    @locations.each { |name, location|
-      model2, orig2, pos2 = location.values
-      next unless model == model2 && origin == orig2
-
-      max_position = pos2 if pos2 > max_position
-    }
-
-    max_position + 1
+    raise "Position already in use" if pos < @size
+    @size = pos + 1
+    pos
   end
 end
