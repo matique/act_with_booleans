@@ -12,12 +12,12 @@ Defines setters and getters to access the booleans.
 As usual:
 ```ruby
 # Gemfile
-...
 gem "act_with_booleans"
-...
 ```
 
-## Samples
+## Examples
+
+### Simple Example
 
 ```ruby
 #require "act_with_booleans"
@@ -37,14 +37,17 @@ foo.x?   # --> true
 Foo.booleans_mask(:x, :y) # 3 (0x03)
 ```
 
+## Example Using Position
+
 ```ruby
 class Foo
   add_to_booleans z: 10
 end
 
-Foo.booleans_mask(:z) # 1024 (0x400) or 2 ** 10
-Foo.act_with_booleans.size # 11
+Foo.booleans_mask(:z) # 1024 (0x400 or 2 ** 10)
 ```
+
+### Additional Functions
 
 ```ruby
 foo.x = true
@@ -53,6 +56,8 @@ foo.booleans_any?(:x, :y)  # true
 foo.booleans_all?(:x, :y)  # false
 foo.booleans_none?(:x, :y) # false
 ```
+
+### Using a Non Default Origin
 
 ```ruby
 #require "act_with_booleans"
@@ -67,7 +72,13 @@ end
 foo = Foo.new
 foo.x    # --> false
 ```
+### Internals
 
+```ruby
+Foo.act_with_booleans.size # 11
+Foo.act_with_booleans.position(:y) # 1
+Foo.act_with_booleans.to_s
+```
 
 ## Rails
 
@@ -78,8 +89,8 @@ The "origin" (default :booleans) is an integer containing the booleans.
 
 Ruby supports pretty large integers,
 but your database has limitations.
-Therefore, it is strongly recommended to validate the "origin"
-in the model.
+Therefore, it is strongly recommended to validate accordingly
+the "origin" in the model.
 
 ## Testing
 

@@ -28,12 +28,9 @@ module ActWithBooleans
     end
 
     def booleans_mask(*booleans)
-      res = 0
-      booleans.each { |bool|
-        _model, _orig, pos = act_with_booleans.location(bool).values
-        res |= 1 << pos
+      booleans.inject(0) { |memo, bool|
+        memo | 1 << act_with_booleans.position(bool)
       }
-      res
     end
 
     private

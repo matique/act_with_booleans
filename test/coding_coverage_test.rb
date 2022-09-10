@@ -20,8 +20,4 @@ describe "Coverage" do
     assert_equal 7, order.act_with_booleans.position(:b)
     assert_raises { order.act_with_booleans.position(:unknown) }
   end
-
-  it "coverage location raise" do
-    assert_nil order.act_with_booleans.location(:unknown)
-  end
 end

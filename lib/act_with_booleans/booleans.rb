@@ -5,12 +5,8 @@ class ActWithBooleans::Admin
 
   attr_reader :locations
 
-  def location(name)
-    @locations[name]
-  end
-
   def position(name)
-    location(name).position
+    @locations[name].position
   end
 
   private
