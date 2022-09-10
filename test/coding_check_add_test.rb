@@ -8,7 +8,7 @@ describe "Internal check add boolean" do
     Order.add_to_booleans a: 1, b: 7
   end
 
-  it "skip reserved position" do
+  it "skips reserved position" do
     Order.add_to_booleans :xx
     order.xx = true
     assert_equal 0x100, order.booleans

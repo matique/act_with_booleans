@@ -21,19 +21,22 @@ class ActWithBooleans::Admin
 
       def booleans_any?(*names)
         mask = #{model}.booleans_mask(*names)
-        !( self.#{origin} & mask ).zero?
+        booleans = self.#{origin} || 0
+        !(booleans & mask).zero?
       end
 
       def booleans_all?(*names)
         mask = #{model}.booleans_mask(*names)
-        ( self.#{origin} & mask ) == mask
+        booleans = self.#{origin} || 0
+        (booleans & mask) == mask
       end
 
       def booleans_none?(*names)
         mask = #{model}.booleans_mask(*names)
-        ( self.#{origin} & mask ).zero?
+        booleans = self.#{origin} || 0
+        (booleans & mask).zero?
       end
-    ), __FILE__, __LINE__ - 19
+    ), __FILE__, __LINE__ - 22
   end
 
   def reset

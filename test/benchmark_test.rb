@@ -7,7 +7,7 @@ require "benchmark/ips"
 # ENV["MORE"] = "true"
 
 describe "Internal timings boolean" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
 
   def setup
     reset_order
@@ -30,21 +30,21 @@ describe "Internal timings boolean" do
 end
 
 describe "Internal timings mask" do
-  let(:order) { Order.create }
+  let(:order) { Order.new }
   let(:admin) { Order.act_with_booleans }
 
   def setup
     reset_order
     Order.add_to_booleans a: 1, c: 3, b: 7
-    # Order.add_to_booleans a: 1, b: 60, c: 3
-    # Order.add_to_booleans a: 1, b: 1000, c: 3
+    # Order.add_to_booleans a: 1, c: 3, b: 60
+    # Order.add_to_booleans a: 1, c: 3, b: 1000
   end
 
   it "times ips" do
     return unless ENV["MORE"]
 
     Benchmark.ips do |x|
-      x.report("mask(:a, :b):  ") { admin.mask(:a, :b) }
+      x.report("mask(:a, :b):  ") { Order.booleans_mask(:a, :b) }
       x.report("any?(:a, :b):  ") { order.booleans_any?(:a, :b) }
       x.report("all?(:a, :b):  ") { order.booleans_all?(:a, :b) }
       x.report("none?(:a, :b): ") { order.booleans_none?(:a, :b) }
@@ -62,7 +62,7 @@ class BenchFoo < Minitest::Benchmark
     n = 100_000
     n = 10_000
     Order.add_to_booleans :blocked2
-    order = Order.create
+    order = Order.new
     assert_performance_constant do |input|
       n.times do
         order.blocked2 = true
