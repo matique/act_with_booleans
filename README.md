@@ -114,7 +114,7 @@ Further reading:
 
 ## License MIT
 
-Copyright (c) 2022 [Dittmar Krall](matiq UG (haftungsbeschränkt))
+Copyright (c) 2022 Dittmar Krall (matiq UG (haftungsbeschränkt
 and is released under the MIT license:
 
 * https://opensource.org/licenses/MIT
