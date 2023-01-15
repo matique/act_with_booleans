@@ -1,7 +1,7 @@
 # see also https://github.com/whitequark/parser/blob/master/.github/workflows/test.yml
 name: Rake
 
-on: push
+on: [push]
 
 jobs:
   test:
@@ -9,13 +9,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        # Due to https://github.com/actions/runner/issues/849, we have to use quotes for '3.0'
-        ruby: [3.0.0, head]
+        ruby: ["2.7", "3.0", "3.2", head]
         test_command: ["bundle exec rake test"]
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}

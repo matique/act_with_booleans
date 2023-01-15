@@ -10,8 +10,11 @@ describe "Coverage" do
 
   it "coverage to_s" do
     res = order.act_with_booleans.to_s
-    # puts res
     puts res if ENV["MORE"]
+  end
+
+  it "coverage location raise" do
+    assert_raises { order.act_with_flags.location(:unknown) }
   end
 
   it "coverage position" do

@@ -14,6 +14,7 @@ As usual:
 # Gemfile
 gem "act_with_booleans"
 ```
+and run "bundle install".
 
 ## Examples
 
@@ -112,9 +113,9 @@ Further reading:
 - [gem bitwise](https://github.com/kenn/bitwise)
 
 
-## License MIT
+## Miscellaneous
 
-Copyright (c) 2022 Dittmar Krall (matiq UG (haftungsbeschr&auml;nkt)
-and is released under the MIT license:
+Copyright (c) 2022 Dittmar Krall (www.matiq.com),
+released under the MIT license:
 
 * https://opensource.org/licenses/MIT

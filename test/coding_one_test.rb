@@ -10,14 +10,14 @@ describe "Internal One Flag" do
     Order.add_to_booleans bool
   end
 
-  it "test order.act_with_booleans" do
+  it "test order.act_with_" do
     refute_nil admin
     assert_equal admin, order.class.act_with_booleans
     assert_equal admin, order.act_with_booleans
     assert_equal admin, Order.act_with_booleans
   end
 
-  it "checks definition of methods for bool" do
+  it "checks definition of methods" do
     msg = "method '#{bool}' not defined"
     assert order.respond_to?(bool.to_s), msg
     assert order.respond_to?("#{bool}?"), msg

@@ -6,7 +6,7 @@ require "benchmark"
 require "benchmark/ips"
 # ENV["MORE"] = "true"
 
-describe "Internal timings boolean" do
+describe "Internal timings" do
   let(:order) { Order.new }
 
   def setup

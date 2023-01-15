@@ -8,7 +8,7 @@ describe "Internal Null" do
     Order.add_to_booleans
   end
 
-  it "respond to act_with_booleans" do
+  it "respond to act_with_" do
     assert Order.respond_to?(:act_with_booleans)
     refute_nil Order.act_with_booleans
   end
