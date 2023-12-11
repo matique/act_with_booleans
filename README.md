@@ -1,6 +1,7 @@
 # ActWithFlags
 
 [![Gem Version](https://badge.fury.io/rb/act_with_booleans.png)](http://badge.fury.io/rb/act_with_booleans)
+[![GEM Downloads](https://img.shields.io/gem/dt/act_with_booleans?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
 
 A Ruby gem handling booleans placed in an integer.
 
@@ -116,6 +117,4 @@ Further reading:
 ## Miscellaneous
 
 Copyright (c) 2023 Dittmar Krall (www.matiq.com),
-released under the MIT license:
-
-* https://opensource.org/licenses/MIT
+released under the [MIT license](https://opensource.org/licenses/MIT).

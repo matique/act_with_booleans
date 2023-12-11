@@ -9,11 +9,10 @@ Gem::Specification.new do |s|
   s.description = %(Handles booleans packed in an integer)
   s.authors = ["Dittmar Krall"]
   s.email = ["dittmar.krall@matiq.com"]
-  s.homepage = "http://matiq.com"
+  s.homepage = "https://github.com/matique/act_with_booleans"
 
   s.license = "MIT"
   s.platform = Gem::Platform::RUBY
-  s.metadata["source_code_uri"] = "https://github.com/matique/act_with_booleans"
 
   s.files = `git ls-files -z`.split("\x0")
   s.require_paths = ["lib"]
