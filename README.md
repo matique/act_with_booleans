@@ -1,4 +1,4 @@
-# ActWithFlags
+# ActWithBooleans
 
 [![Gem Version](https://badge.fury.io/rb/act_with_booleans.png)](http://badge.fury.io/rb/act_with_booleans)
 [![GEM Downloads](https://img.shields.io/gem/dt/act_with_booleans?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
@@ -6,7 +6,6 @@
 A Ruby gem handling booleans placed in an integer.
 
 Defines setters and getters to access the booleans.
-
 
 ## Installation
 
