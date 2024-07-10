@@ -20,7 +20,7 @@ describe "Internal One Flag" do
   it "checks definition of methods" do
     msg = "method '#{bool}' not defined"
     assert order.respond_to?(bool.to_s), msg
-    assert order.respond_to?("#{bool}?"), msg
-    assert order.respond_to?("#{bool}="), msg
+    assert order.respond_to?(:"#{bool}?"), msg
+    assert order.respond_to?(:"#{bool}="), msg
   end
 end

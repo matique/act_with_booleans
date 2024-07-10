@@ -3,7 +3,7 @@ gemspec
 
 group :test do
   gem "benchmark-ips"
-  gem "observr"
+  gem "cuco"
   gem "ricecream"
   gem "simplecov", require: false
   gem "standard", require: false
