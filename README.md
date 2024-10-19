@@ -1,7 +1,9 @@
 # ActWithBooleans
 
-[![Gem Version](https://badge.fury.io/rb/act_with_booleans.png)](http://badge.fury.io/rb/act_with_booleans)
+[![Gem Version](https://badge.fury.io/rb/act_with_booleans.svg)](http://badge.fury.io/rb/act_with_booleans)
 [![GEM Downloads](https://img.shields.io/gem/dt/act_with_booleans?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
+[![rake](https://github.com/matique/act_with_booleans/actions/workflows/rake.yml/badge.svg)](https://github.com/matique/act_with_booleans/actions/workflows/rake.yml)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/standardrb/standard)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://choosealicense.com/licenses/mit/)
 
 A Ruby gem handling booleans placed in an integer.
@@ -116,5 +118,5 @@ Further reading:
 
 ## Miscellaneous
 
-Copyright (c) 2023 Dittmar Krall (www.matiq.com),
+Copyright (c) 2023-2024 Dittmar Krall (www.matiq.com),
 released under the [MIT license](https://opensource.org/licenses/MIT).
