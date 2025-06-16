@@ -1,22 +1,10 @@
 # ActWithBooleans
 
-[![Gem Version](https://img.shields.io/gem/v/X?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/X)
-[![Downloads](https://img.shields.io/gem/dt/X?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/X)
-[![GitHub Build](https://img.shields.io/github/actions/workflow/status/matique/X/rake.yml?logo=github)](https://github.com/matique/X/actions/workflows/rake.yml)
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-168AFE.svg)](https://github.com/standardrb/standard)
-[![MIT License](https://img.shields.io/badge/license-MIT-168AFE.svg)](http://choosealicense.com/licenses/mit/)
-
 [![Gem Version](https://img.shields.io/gem/v/act_with_booleans?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
 [![Downloads](https://img.shields.io/gem/dt/act_with_booleans?color=168AFE&logo=rubygems&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
 [![GitHub Build](https://img.shields.io/github/actions/workflow/status/matique/act_with_booleans/rake.yml?logo=github)](https://github.com/matique/act_with_booleans/actions/workflows/rake.yml)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-168AFE.svg)](https://github.com/standardrb/standard)
 [![MIT License](https://img.shields.io/badge/license-MIT-168AFE.svg)](http://choosealicense.com/licenses/mit/)
-
-[![Gem Version](https://badge.fury.io/rb/act_with_booleans.svg)](http://badge.fury.io/rb/act_with_booleans)
-[![GEM Downloads](https://img.shields.io/gem/dt/act_with_booleans?color=168AFE&logo=ruby&logoColor=FE1616)](https://rubygems.org/gems/act_with_booleans)
-[![rake](https://github.com/matique/act_with_booleans/actions/workflows/rake.yml/badge.svg)](https://github.com/matique/act_with_booleans/actions/workflows/rake.yml)
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/standardrb/standard)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://choosealicense.com/licenses/mit/)
 
 A Ruby gem handling booleans placed in an integer.
 
